@@ -17,7 +17,7 @@ Se debe desplegar una Cloud Function que permita:
 * Leer todos los pacientes en el nodo de `pacientes`.
 * Obtener los datos de un paciente en particular
 * Crear un nuevo registro en el nodo de `pacientes`.
-* En caso de acceder a un paciente
+* En caso de acceder a un paciente, se debe dejar un log de acceso en un nodo llamado `logs`
 
 ### Requisitos previos
 * Crear un nuevo proyecto de Firebase. Nombrarlo de la siguiente manera: `hicapps-<NOMBRE>-<APELLIDO>`
@@ -30,6 +30,8 @@ Se debe desplegar una Cloud Function que permita:
 * Se debe poder obtener los datos de un paciente en particular llamando por GET a `/pacientes/:id_paciente`
 * Se debe poder crear un nuevo paciente llamando por POST a `/pacientes`.
 * Al obtener los datos de detalle un paciente marcado con el atributo `accesible: false`, el endpoint debe devolver un HTTP 403.
+* Cada vez que se haga una operación GET o POST sobre un endpoint, se debe guardar una entrada en el nodo `logs` con la siguiente estructura: `createdAt` (UNIX Timestamp), `message` (Ej: "Acceso a endpoint GET /pacientes")
+
 
 ### Requerimientos no funcionales
 * El proyecto de Cloud Functions debe utilizar la dependencia `firebase-admin` para acceder a RTDB.
@@ -47,12 +49,13 @@ El candidato debe realizar entrega de lo siguiente:
 * JSON con estructura del modelo de seguridad de la base de datos.
 
 # Criterios de evaluación
-| Evaluación                                      | Puntos |
-|-------------------------------------------------|--------|
-| Cumplir todos los requerimientos funcionales    | 10 pts |
-| Cumplir todos los requerimientos no funcionales | 10 pts |
-| Modelamiento adecuado de base de datos          | 5 pts  |
-| Indentación adecuada del código                 | 5 pts  |
+| Evaluación                                        | Puntos |
+|---------------------------------------------------|--------|
+| Cumplir todos los requerimientos funcionales      | 10 pts |
+| Cumplir todos los requerimientos no funcionales   | 10 pts |
+| Modelamiento adecuado de base de datos            | 5 pts  |
+| Modelamiento adecuado de las reglas de seguridad  | 10 pts |
+| Indentación adecuada del código                   | 5 pts  |
 
 # Ayudas
 * Para inicializar un proyecto nuevo de Firebase: `firebase init`
