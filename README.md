@@ -47,6 +47,7 @@ El candidato debe realizar entrega de lo siguiente:
 * URL a Cloud Function deployeada en su proyecto de Firebase.
 * JSON con estructura de la base de datos (utilizar el export de Firebase).
 * JSON con estructura del modelo de seguridad de la base de datos.
+* **No es necesario construir un frontend para este proyecto**
 
 # Criterios de evaluación
 | Evaluación                                        | Puntos |
